@@ -1,0 +1,10 @@
+{
+  "name": "github-updater",
+  "version": "0.0.0",
+  "description": "Polls a GitHub repository and monitors for commits.",
+  "main": "app.js",
+  "author": {
+    "name": "nazhrenn",
+    "email": "shidobu@gmail.com"
+  }
+}
