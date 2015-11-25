@@ -2,9 +2,11 @@
 module.exports = (function () {
 	var restCall = require('./rest-call.js');
 	var obj = {};
+	
+	var gitHubApiUrl = "https://api.github.com/";
 
-	obj.getCommits = function (callback) {
-		restCall.get('https://api.github.com/repos/nazhrenn/KitchenSurprise/commits?since=' + new Date(2012, 01, 03, 8, 30).toISOString(), null, callback);
+	obj.getCommits = function (user, repo, sinceDate, callback) {
+		restCall.get(gitHubApiUrl + 'repos/' + user + '/' + repo + '/commits' + (sinceDate !== null ? 'since=' + sinceDate.toISOString() : ''), null, callback);
 	};
 
 	return obj;
