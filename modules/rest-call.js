@@ -69,12 +69,12 @@ module.exports = (function () {
 
 		// do the GET request
 		var req = reqMethod(optionObj.req, function (res) {
-			console.log("statusCode: ", res.statusCode);
+			//console.log("statusCode: ", res.statusCode);
 			// uncomment it for header details
 			//  console.log("headers: ", res.headers);
 			var chunks = [];
 			res.on('data', function (chunk) {
-				console.info("GET Chunk #" + chunks.length);
+				//console.info("GET Chunk #" + chunks.length);
 				chunks.push(new Buffer(chunk).toString('ascii'));
 			});
 			
