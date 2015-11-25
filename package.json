@@ -6,5 +6,8 @@
   "author": {
     "name": "nazhrenn",
     "email": "shidobu@gmail.com"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0"
   }
 }

@@ -81,7 +81,7 @@ module.exports = (function () {
 			res.on('end', function () {
 				var resData = chunks.join('');
 				if (optionObj.responseIsJson) {
-					res = JSON.parse(resData);
+					resData = JSON.parse(resData);
 				}
 				callback(resData);
 			})
