@@ -64,8 +64,12 @@ function processData(resData) {
 					console.log(stdout);
 				}
 				updateDataFile(resData.length);
+				
+				process.exit(0);
 			});
 		}
+	} else {
+		process.exit(0);
 	}
 }
 
