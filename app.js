@@ -29,6 +29,10 @@ try {
 var user = argv.user;
 var repo = argv.repo;
 
+console.info("user: " + user);
+console.info("repo: " + repo);
+console.info("command: " + command);
+
 if (!!data[user] && !!data[user][repo]) {
 	// check if the data is up to date.
 	var lastCheckDate = new Date(data[user][repo].lastDate);
