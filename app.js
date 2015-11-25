@@ -61,6 +61,7 @@ function processData(resData) {
 			command = data[user][repo].lastCommand;
 		}
 		if (command !== null) {
+			console.info("Executing command... '" + command + "'");
 			exec(command, function (error, stdout, stderr) {
 				if (!!error) {
 					console.log(stderr);
@@ -73,6 +74,7 @@ function processData(resData) {
 			});
 		}
 	} else {
+		console.info("Exiting process...");
 		process.exit(0);
 	}
 }
