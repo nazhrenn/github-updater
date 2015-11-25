@@ -43,7 +43,6 @@ if (!!data[user] && !!data[user][repo]) {
 }
 
 function processData(resData) {
-	console.log(resData);
 	if (!data[user]) {
 		data[user] = {};
 	}
@@ -53,15 +52,20 @@ function processData(resData) {
 		};
 	}
 	if (resData.length > 0) {
+		// there were commits, run update command
 		if (command === null && !!data[user][repo].lastCommand) {
 			command = data[user][repo].lastCommand;
 		}
 		if (command !== null) {
 			exec(command, function (error, stdout, stderr) {
+				if (!!error) {
+					console.log(stderr);
+				} else {
+					console.log(stdout);
+				}
 				updateDataFile(resData.length);
 			});
 		}
-		// there were commits, run update command
 	}
 }
 
