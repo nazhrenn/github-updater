@@ -4,14 +4,19 @@ var gitHubApi = require('./modules/github-api.js');
 var argv = require('minimist')(process.argv.slice(2));
 
 var filePath = __dirname + '/repoData.json';
-
 var command = null;
+var counterFile = null;
+
 if (argv.command) {
 	command = argv.command;
 }
 
 if (argv.file) {
 	filePath = argv.file;
+}
+
+if (argv.counterFile) {
+	counterFile = argv.counterFile;
 }
 
 var data = {};
@@ -84,5 +89,9 @@ function updateDataFile(commitCount) {
 	data[user][repo].lastDate = new Date();
 	data[user][repo].totalCommits += commitCount;
 	
+	if (counterFile !== null) {
+		fs.writeFileSync(counterFile, data[user][repo].totalCommits);
+	}
+
 	fs.writeFileSync(filePath, JSON.stringify(data));
 }
